@@ -17,7 +17,7 @@ function App() {
       <Element name="Acceuil"><section><Acceuil/></section></Element>
       <Element name="Apropos"><section><Apropos/></section></Element>
       <Element name="Projets"><section><Projets/></section></Element>
-      <Element name="Certification"><section><Certification/></section></Element>
+      <Element name="Education"><section><Certification/></section></Element>
       <Element name="Contact"><section><Contact/></section></Element>
     </>
   )

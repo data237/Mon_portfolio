@@ -1,9 +1,15 @@
 import React from 'react';
+import { Button } from 'antd';
 import { Link } from 'react-scroll'
 import styled from 'styled-components'
-import imageheader from '../../image/6146b09d106eeae94a89a1e96468a28cdf95d40a.jpg'
+import imageheader from '../../image/2.png'
 
 const HeaderStyle =styled.div`
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #000000;
+    padding: 10px 10px;
     width: 100%;
     height: 1%;
     position: sticky;
@@ -13,16 +19,9 @@ const HeaderStyle =styled.div`
 const Header1Style = styled.div`
     display: flex;
     justify-content: center;
-    font-family: 'Jersey 10';
-    font-weight: bold;
-    font-size: 5em;
-    height: .3%;
-    color: white;
-    background-image: url(${imageheader});
-    background-size: cover;
-    background-position: center;
+    
      @media (max-width: 360px ) {
-    font-size: 2em;
+    
   }
 
   @media (min-width: 361px) and (max-width: 430px) {
@@ -43,9 +42,11 @@ const Header1Style = styled.div`
     `
 const Header2Style = styled.div`
     display: flex;
-    justify-content: center;
-    gap: 2%;
-    background-color:#2c85c8;
+    gap: 20%;
+    align-items: center;
+    white-space: nowrap;
+    flex-wrap: nowrap;
+    
      :hover {
     color: #8a2cd2;
     cursor: pointer;
@@ -54,10 +55,11 @@ const Header2Style = styled.div`
 
     `
 
+
 const FontStyle = styled.div`
     font-family: "Jersey 10" ;
     font-weight: 00;
-    font-size: 2em;
+    font-size: 1.5em;
     color: white;
   @media (max-width: 360px ) {
     font-size: 1em;
@@ -83,15 +85,18 @@ function Header(){
     return (
         <HeaderStyle>
             <Header1Style>
-                  MON PORTFOLIO
+                 <img src={imageheader} alt="Header Image" style={{ width: '30px', height: '30px', borderRadius: '100%' }}></img>
             </Header1Style>
             <Header2Style>
                 <Link to="Acceuil" smooth={true} duration={500}><FontStyle>ACCUEIL</FontStyle></Link>
                 <Link to="Apropos" smooth={true} duration={500}><FontStyle>A PROPOS</FontStyle></Link>
                 <Link to="Projets" smooth={true} duration={500}><FontStyle>PROJETS</FontStyle></Link>
-                <Link to="Certification" smooth={true} duration={500}><FontStyle>CERTIFICATION</FontStyle></Link>
-                <Link to="Contact" smooth={true} duration={500}><FontStyle>CONTACT</FontStyle></Link>
+                <Link to="Education" smooth={true} duration={500}><FontStyle>EDUCATION</FontStyle></Link>
+                
             </Header2Style>
+            <Button type="primary" ghost>
+              Contactez Moi
+            </Button>
         </HeaderStyle>
     );
 }
