@@ -6,7 +6,6 @@ import logogmail from '../../image/gmail-white.svg'
 
 
 const ContactStyle = styled.div`
-    background-color: rgba(208, 209, 211, 0.8);
     padding-bottom: 2%;
 `
 

@@ -1,19 +1,27 @@
 import React from 'react';
 import styled from 'styled-components'
-import imagemabou from '../../image/mabou.jpg'
 
+const H1 = styled.h1`
+    font-family: 'poppins', sans-serif;
+    font-weight: bold;
+    font-size: 4em;
+    color: white;
+`
+const H3 = styled.h3`
+    font-family: 'poppins', sans-serif;
+    font-weight: 400;
+    font-size: 1.2em;
+    background: linear-gradient(90deg, #4FC3F7 0%, #FFFFFF 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    `
 
-const ImgmabouStyle = styled.div`
-    width: 250px;
-    height: 250px;
-    border-radius: 100%;
-    overflow: hidden;
-`
-const Img = styled.img`
-    height: 350px;
-`
 const AproposStyle = styled.div`
-   background-color: white; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 `
 const AproposStyle1 = styled.div`
     display: flex;
@@ -48,11 +56,12 @@ const AproposStyle2 = styled.div`
   }
 `
 const Paragraph1Style = styled.p`
+    width: 40%;
     font-family: 'Roboto', sans-serif;
     font-weight: 400;
     font-size: 2.1em;
     text-align: justify;
-    color: black;
+    color: #E1E1E1;
      @media (max-width: 360px ) {
     font-size: 1.2em;
   }
@@ -89,38 +98,9 @@ const Paragraph2Style = styled.p`
   }
 `
 
-const H1Style = styled.h1`
-    font-family: 'Jersey 10';
-    font-weight: 400;
-    font-size: 80px;
-    color: rgba(44, 133, 200, 1);
-    margin-bottom: 4%;
-    text-align: center;
-    padding-top: 4%;
-     @media (max-width: 360px ) {
-    font-size: 58px;
-  }
 
-  @media (min-width: 361px) and (max-width: 430px) {
-    font-size: 58px;
-  }
-`
 
-const H2Style = styled.h2`
-    font-family: 'Jersey 10';
-    font-weight: 400;
-    font-size: 64px;
-    color: rgba(44, 133, 200, 1);
-    margin-bottom: 20px;
-    text-align: center;
-     @media (max-width: 360px ) {
-    font-size: 44px;
-  }
 
-  @media (min-width: 361px) and (max-width: 430px) {
-    font-size: 44px;
-  }
-`
 const ServicesStyle = styled.div`
      width: 400px;
      padding: 20px;
@@ -159,28 +139,24 @@ function Apropos(){
     return (
         <>
         <AproposStyle>
-            <H1Style>A PROPOS DE MOI</H1Style>
-            <AproposStyle1>
-                <AproposStyle2>
-              
-                        <ImgmabouStyle><Img src={imagemabou}></Img></ImgmabouStyle>
-                
-                <Paragraph1Style> 
-                    Bonjour ! Je m'appelle MABOU DEFO RODRIGUE SOMMET et je suis Data Analyst.
-                    Passionné par les chiffres, les tendances et les histoires que racontent les données, 
-                    j’aide les entreprises à transformer des données brutes en informations exploitables 
-                    pour éclairer leurs décisions stratégiques. Mon objectif est de trouver du sens dans 
-                    les données et de contribuer à la prise de décision par des analyses claires, 
-                    précises et bien visualisées.
-                </Paragraph1Style>
-            
-                </AproposStyle2>
-            </AproposStyle1>
+            <div style={{textAlign: 'center', paddingTop: '4%', paddingBottom: '4%'}}>
+                  <H1> A propos de moi </H1>
+                  <H3>Apprenez à me connaître</H3>
+            </div>
+
+            <Paragraph1Style> 
+                Bonjour ! Je m'appelle MABOU DEFO RODRIGUE SOMMET et je suis Data Analyst.
+                Passionné par les chiffres, les tendances et les histoires que racontent les données, 
+                j’aide les entreprises à transformer des données brutes en informations exploitables 
+                pour éclairer leurs décisions stratégiques. Mon objectif est de trouver du sens dans 
+                les données et de contribuer à la prise de décision par des analyses claires, 
+                précises et bien visualisées.
+            </Paragraph1Style>   
            
             <ServiceStyle>
                 
                 <ServicesStyle>
-                    <H2Style> Ce que je fais </H2Style>
+                    <H3> Ce que je fais </H3>
                     <Paragraph2Style> 
                         En tant que Data Analyst, j’interviens à toutes les étapes de l’analyse :
                         <br></br> - Collecte de données (via des bases SQL, API, fichiers Excel/CSV, etc.)
@@ -191,7 +167,7 @@ function Apropos(){
                     </Paragraph2Style>
                 </ServicesStyle>
                 <ServicesStyle>
-                    <H2Style> Mes outils </H2Style>
+                    <H3> Mes outils </H3>
                     <Paragraph2Style> 
                         - Langages: Python (pandas, numpy, matplotlib, seaborn), SQL<br></br>
                         - Visualisation: Tableau, Power BI, Excel <br></br>
@@ -200,7 +176,7 @@ function Apropos(){
                     </Paragraph2Style>
                 </ServicesStyle>
                 <ServicesStyle>
-                    <H2Style> Mes objectifs </H2Style>
+                    <H3> Mes objectifs </H3>
                     <Paragraph2Style> 
                       
                              Je cherche à travailler sur des projets où je peux :

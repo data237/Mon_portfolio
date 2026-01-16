@@ -42,10 +42,11 @@ const Header1Style = styled.div`
     `
 const Header2Style = styled.div`
     display: flex;
-    gap: 20%;
+    gap: 5em;
     align-items: center;
     white-space: nowrap;
     flex-wrap: nowrap;
+  
     
      :hover {
     color: #8a2cd2;
@@ -57,7 +58,7 @@ const Header2Style = styled.div`
 
 
 const FontStyle = styled.div`
-    font-family: "Jersey 10" ;
+    font-family: "Montserrat" ;
     font-weight: 00;
     font-size: 1.5em;
     color: white;
@@ -94,9 +95,12 @@ function Header(){
                 <Link to="Education" smooth={true} duration={500}><FontStyle>EDUCATION</FontStyle></Link>
                 
             </Header2Style>
-            <Button type="primary" ghost>
-              Contactez Moi
-            </Button>
+            <div>
+              <Button type="primary" ghost>
+                Contactez Moi
+              </Button>
+            </div>
+            
         </HeaderStyle>
     );
 }

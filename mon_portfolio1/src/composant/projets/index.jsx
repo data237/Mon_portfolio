@@ -47,7 +47,7 @@ const projets =[ {
 }]
 
 const ProjetStyles = styled.div`
-    background-color: rgba(208, 209, 211, 0.8);
+    
 
 `
 const H1Style = styled.h1`

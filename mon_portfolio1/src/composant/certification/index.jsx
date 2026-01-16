@@ -18,7 +18,6 @@ const H1Style = styled.h1`
 `
 
 const CertifStyle = styled.div`
-    background-color: white;
     padding-bottom: 4%;
 `
 
