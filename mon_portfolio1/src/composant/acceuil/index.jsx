@@ -46,6 +46,7 @@ const H3 = styled.h3`
     background-clip: text;
 `
 function Acceuil(){
+   
         return (
             <AcceuilStyle>
               <GrilleStyle>
@@ -58,7 +59,7 @@ function Acceuil(){
                   <H3>Developpeur Frontend & Data Analyste</H3>
                 </div>
                
-                <Button type="primary" ghost>
+                <Button type="primary">
                 Contactez Moi
                 </Button>
               </div>

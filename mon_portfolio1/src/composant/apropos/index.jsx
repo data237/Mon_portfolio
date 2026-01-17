@@ -1,4 +1,5 @@
 import React from 'react';
+import { useState } from 'react';
 import styled from 'styled-components'
 
 const H1 = styled.h1`
@@ -23,10 +24,21 @@ const AproposStyle = styled.div`
     justify-content: center;
     align-items: center;
 `
-const AproposStyle1 = styled.div`
+const Choix = styled.div`
     display: flex;
     justify-content: center;
-    gap: 50px; 
+    align-items: center;
+    height: 50px;
+    border: 2px solid rgba(44, 133, 200, 1);
+    border-radius: 100px;
+    padding: 10px;
+    background-color:  ${props => props.type === 'primary' ? 'rgba(44, 133, 200, 1)' : 'transparent'};
+    color:  white;
+    &:hover {
+        background-color: rgba(44, 133, 200, 1);
+        color: white;
+        cursor: pointer;
+    }
 `
 const AproposStyle2 = styled.div`
     width: 40%;
@@ -56,10 +68,10 @@ const AproposStyle2 = styled.div`
   }
 `
 const Paragraph1Style = styled.p`
-    width: 40%;
+    width: 60%;
     font-family: 'Roboto', sans-serif;
     font-weight: 400;
-    font-size: 2.1em;
+    font-size: 1.5em;
     text-align: justify;
     color: #E1E1E1;
      @media (max-width: 360px ) {
@@ -136,6 +148,14 @@ const ServiceStyle = styled.div`
 `
 
 function Apropos(){
+     const [display, setDisplay] = useState(true);
+    
+    const handleclick = () => {
+            
+            setDisplay(!display);
+        }
+
+
     return (
         <>
         <AproposStyle>
@@ -143,51 +163,53 @@ function Apropos(){
                   <H1> A propos de moi </H1>
                   <H3>Apprenez à me connaître</H3>
             </div>
-
-            <Paragraph1Style> 
-                Bonjour ! Je m'appelle MABOU DEFO RODRIGUE SOMMET et je suis Data Analyst.
-                Passionné par les chiffres, les tendances et les histoires que racontent les données, 
-                j’aide les entreprises à transformer des données brutes en informations exploitables 
-                pour éclairer leurs décisions stratégiques. Mon objectif est de trouver du sens dans 
-                les données et de contribuer à la prise de décision par des analyses claires, 
-                précises et bien visualisées.
-            </Paragraph1Style>   
-           
-            <ServiceStyle>
+            <div style={{display: 'flex', justifyContent: 'center', gap: '50px', paddingBottom: '4%'}}> 
+                <Choix onClick={() => handleclick()} type={display ? 'primary' : ''}>
+                    <span>Data Analyste</span>
+                </Choix>
+                <Choix onClick={() => handleclick()} type={display ? '' : 'primary'}>
+                    <span>Developpeur frontend</span>
+                </Choix>
+            </div>
+            <div style={{display: 'flex', justifyContent: 'center', paddingBottom: '4%'}}>
+            {display ? (
                 
-                <ServicesStyle>
-                    <H3> Ce que je fais </H3>
-                    <Paragraph2Style> 
-                        En tant que Data Analyst, j’interviens à toutes les étapes de l’analyse :
-                        <br></br> - Collecte de données (via des bases SQL, API, fichiers Excel/CSV, etc.)
-                        <br></br> - Nettoyage et préparation des données pour garantir leur qualité
-                        <br></br> - Analyse exploratoire pour identifier des tendances, anomalies ou corrélations
-                        <br></br> - Création de visualisations percutantes via Tableau, Power BI ou Python
-                        <br></br> - Interprétation des résultats et recommandations orientées business
-                    </Paragraph2Style>
-                </ServicesStyle>
-                <ServicesStyle>
-                    <H3> Mes outils </H3>
-                    <Paragraph2Style> 
-                        - Langages: Python (pandas, numpy, matplotlib, seaborn), SQL<br></br>
-                        - Visualisation: Tableau, Power BI, Excel <br></br>
-                        - Traitement de données: pandas, Excel, OpenRefine<br></br>
-                        - Outils complémentaires: Jupyter Notebook, Git, Google Sheets
-                    </Paragraph2Style>
-                </ServicesStyle>
-                <ServicesStyle>
-                    <H3> Mes objectifs </H3>
-                    <Paragraph2Style> 
-                      
-                             Je cherche à travailler sur des projets où je peux :
-                             <br></br> - Apporter de la valeur par la donnée 
-                             <br></br> - Répondre à des problèmes concrets grâce à l’analyse 
-                             <br></br> - Collaborer avec des équipes métiers pour transformer les données en action 
-                       
-                        
-                    </Paragraph2Style>
-                </ServicesStyle>
-            </ServiceStyle>
+                  
+                    <Paragraph1Style>
+                    <h3 style={{fontWeight: 'bold', paddingBottom: '30px'}}> Data Analyst | De la donnée brute à la décision stratégique. </h3>  
+                    <p style={{paddingBottom: '15px'}}>
+                     Spécialiste des chiffres par formation (Économétrie & Statistiques) 
+                    et développeur par passion, j'aide les entreprises à transformer leurs 
+                    données en leviers de croissance.
+                    </p>
+                    <p style={{paddingBottom: '15px'}}>
+                        Mon profil hybride me permet non seulement d'analyser des modèles 
+                    statistiques complexes, mais aussi de concevoir des outils de visualisation 
+                    sur mesure. Je ne me contente pas d'extraire des chiffres ; je raconte une 
+                    histoire visuelle et interactive pour faciliter la prise de décision.
+                    </p>
+                     
+                    <span style={{fontWeight: 'bold'}}> Expertise </span>  : Analyse de données, Modélisation, Data Visualization, SQL, Python.
+                    </Paragraph1Style>) : (
+                    <Paragraph1Style>
+                    <h3 style={{fontWeight: 'bold', paddingBottom: '30px'}}> Développeur Frontend | Passionné par l'interface et la logique. </h3>  
+                    <p style={{paddingBottom: '15px'}}>
+                          Issu d'un parcours initial en statistiques et économétrie, j'ai choisi de 
+                    mettre ma rigueur analytique au service du développement web. 
+                    Mon approche est simple : créer des interfaces fluides, accessibles et 
+                    performantes.
+                    </p>
+                    <p style={{paddingBottom: '15px'}}> 
+                        Ma force ? Une capacité naturelle à structurer le code et à résoudre des problèmes 
+                    logiques complexes, héritée de mon background scientifique. Je transforme des 
+                    idées créatives en composants réutilisables et en expériences utilisateur 
+                    impeccables.
+                    </p>
+                     
+                    <span style={{fontWeight: 'bold'}}> Stack de prédilection </span>  : HTML/CSS/JS, React, Tailwind CSS. 
+                    </Paragraph1Style>)
+                    }
+            </div>
         </AproposStyle>
         </>
     )
