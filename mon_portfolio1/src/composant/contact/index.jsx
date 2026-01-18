@@ -1,121 +1,97 @@
 import React from 'react';
-import styled from 'styled-components'
-import logowathsapp from '../../image/wathsapp.png'
-import logolinkedin from '../../image/LinkedIn.png'
-import logogmail from '../../image/gmail-white.svg'
+import styled from 'styled-components';
+import logowathsapp from '../../image/wathsapp.png';
+import logolinkedin from '../../image/LinkedIn.png';
+import logogmail from '../../image/gmail-white.svg';
 
-
-const ContactStyle = styled.div`
-    padding-bottom: 2%;
-`
-
-const H1Style = styled.h1`
-    font-family: 'Jersey 10';
-    font-weight: 400;
-    font-size: 80px;
-    color: rgba(44, 133, 200, 1);
-    margin-bottom: 4%;
-    text-align: center;
-    padding-top: 2%;
-     @media (max-width: 360px ) {
-    font-size: 60px;
-  }
-
-  @media (min-width: 361px) and (max-width: 430px) {
-    font-size: 60px;
-  }
-`
-const LogoStyle = styled.img`
-    width: 60px;
-    height: 60px;
-    @media (max-width: 360px) {
-     width: 30px;
-     height: 30px;
-  }
-
-  @media (min-width: 361px) and (max-width: 430px) {
-     width: 30px;
-    height: 30px;
-  }
-
-  @media (min-width: 431px) and (max-width: 600px) {
-       width: 30px;
-    height: 30px;
-  }
-
-  @media (min-width: 601px) and (max-width: 830px) {
-     width: 40px;
-    height: 40px;
-  }
-
-  @media (min-width: 831px) and (max-width: 1023px) {
-    width: 50px;
-    height: 50px;
-  }
-`
-
-const Contact1Style = styled.div`
-    margin-left: 20%;
-    display: flex;
-    align-items: end;
-    gap: 3%;
-    @media (max-width: 360px ) {
-    margin-left: 10%;
-  }
-
-  @media (min-width: 361px) and (max-width: 430px) {
-    margin-left: 10%;
-  }
-
-  @media (min-width: 431px) and (max-width: 600px) {
-    margin-left: 10%;
-  }
-
-  @media (min-width: 601px) and (max-width: 830px) {
-    margin-left: 10%;
-  }
-
-  @media (min-width: 831px) and (max-width: 1023px) {
-   margin-left: 10%;
-  }
-`
-
-const ParagraphStyle = styled.p`
-    font-family: 'Jersey 10';
-    font-weight: 400;
-    font-size: 2.5em;
-    color: black;
-    margin-bottom: 1%;
-   @media (max-width: 360px) {
-    font-size: 1.2em;
-    }
-
-  @media (min-width: 361px) and (max-width: 430px) {
-    font-size: 1.2em;
-  }
-
-  @media (min-width: 431px) and (max-width: 600px) {
-    font-size: 1.5em;
-  }
-
-  @media (min-width: 601px) and (max-width: 830px) {
-    font-size: 2em;
-  }
-
-  @media (min-width: 831px) and (max-width: 1023px) {
-    font-size: 2em;
-  }
-
+const ContactStyle = styled.footer`
+  padding: 2rem 5%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid rgba(200, 200, 200, 0.2);
+  background-color: #000;
   
-`
-function Contact(){
-    return(
-        <ContactStyle>
-            <H1Style> CONTACT </H1Style>
-            <Contact1Style><LogoStyle src={logowathsapp}></LogoStyle><ParagraphStyle>+237 657 05 04 56</ParagraphStyle>  </Contact1Style>
-            <Contact1Style><LogoStyle src={logolinkedin}></LogoStyle><ParagraphStyle> Rodrigue Mabou Defo</ParagraphStyle></Contact1Style>
-            <Contact1Style><LogoStyle src={logogmail}></LogoStyle><ParagraphStyle> sommetdefo3@gmail.com</ParagraphStyle></Contact1Style>
-        </ContactStyle>
-    )
+  /* Responsive : on empile les éléments sur mobile */
+  @media (max-width: 768px) {
+    flex-direction: column-reverse; /* Logos en haut, copyright en bas */
+    gap: 20px;
+    text-align: center;
+  }
+`;
+
+const Copyright = styled.h3`
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  font-size: 0.9rem;
+  color: #888;
+  margin: 0;
+`;
+
+const SocialContainer = styled.div`
+  display: flex;
+  gap: 20px;
+  align-items: center;
+`;
+
+const LogoAnchor = styled.a`
+  transition: transform 0.3s ease, filter 0.3s ease;
+  display: flex;
+  align-items: center;
+
+  &:hover {
+    transform: translateY(-3px);
+    filter: brightness(1.2);
+  }
+`;
+
+const LogoStyle = styled.img`
+  width: 25px;
+  height: 25px;
+
+  @media (min-width: 768px) {
+    width: 30px;
+    height: 30px;
+  }
+`;
+
+function Contact() {
+  const currentYear = new Date().getFullYear();
+
+  return (
+    <ContactStyle>
+      <Copyright>
+        © {currentYear} MABOUDATA. Tous droits réservés.
+      </Copyright>
+
+      <SocialContainer>
+        {/* WhatsApp */}
+        <LogoAnchor 
+          href="https://wa.me/2376XXXXXXXX" 
+          target="_blank" 
+          rel="noopener noreferrer"
+        >
+          <LogoStyle src={logowathsapp} alt="WhatsApp" />
+        </LogoAnchor>
+
+        {/* LinkedIn */}
+        <LogoAnchor 
+          href="https://www.linkedin.com/in/votre-profil" 
+          target="_blank" 
+          rel="noopener noreferrer"
+        >
+          <LogoStyle src={logolinkedin} alt="LinkedIn" />
+        </LogoAnchor>
+
+        {/* Gmail */}
+        <LogoAnchor 
+          href="mailto:votre-email@gmail.com"
+        >
+          <LogoStyle src={logogmail} alt="Gmail" />
+        </LogoAnchor>
+      </SocialContainer>
+    </ContactStyle>
+  );
 }
-export default Contact
+
+export default Contact;

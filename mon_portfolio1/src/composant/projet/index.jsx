@@ -1,75 +1,38 @@
 import React from 'react';
-import styled from 'styled-components'
+import styled from 'styled-components';
+import { Card } from 'antd';
 
-const ImgprojetStyle = styled.img`
-    width: 95%;
-    height: 400px;
-    border-radius: 7%;
-    :hover {
-        transform: scale(2);
-        transition: transform 0.3s ease;
-        cusor: pointer;
-    }
-@media (max-width: 360px ) {
-    height: 200px;
-    border-radius: 10%;
-  }
+const { Meta } = Card;
 
-  @media (min-width: 361px) and (max-width: 430px) {
-    height: 200px;
-    border-radius: 12%;
-  }
-    @media (min-width: 431px) and (max-width: 600px) {
-    height: 300px;
-    border-radius: 7%;
-  }
+// Wrapper pour surcharger le style de la Card AntD
+const StyledCard = styled(Card)`
+  width: 100%; /* Prend toute la largeur du container parent */
+  max-width: 350px; /* Mais ne dépasse pas 350px */
+  margin-bottom: 20px;
   
-`
-const ProjetStyles = styled.div`
-    width: 450px;
-    gap:100px;
-    margin-bottom: 3%;
-`
-const ButtonStyle = styled.button`
-    border-radius: 15px;
-    padding: 2%;
-    margin-top: 2%;
-    font-family: 'Jersey 10';
-    font-weight: 400;
-    font-size: 1.3em;
-    color: rgba(255, 255, 255, 1);
-    background-color: #2c85c8;
-    border: none;
-    &:hover {
-        background-color: #8a2cd2;
-        cursor: pointer;
-        transition: background-color 0.8s ease;
-    }
-`
+  .ant-card-cover img {
+    height: 200px;
+    object-fit: cover; /* Évite de déformer l'image */
+  }
 
-const ParaProjetStyle = styled.p`
-    font-family: 'Roboto', sans-serif;
-    font-weight: 400;
-    font-size: 1.2em;
-    color: rgba(0, 0, 0, 1);
-    
+  @media (max-width: 480px) {
+    max-width: 100%; /* Sur petit mobile, la carte prend toute la largeur */
+  }
+`;
 
-`
-const SpanProjetStyle = styled.span`
-    font-family: 'Jersey 10';
-    font-size: 1.3em;
-    color:  #2c85c8;
-`
-function Projet({image, url, titreprojet, numeroprojet}){
-    return(
-        <ProjetStyles>  
-
-            <ImgprojetStyle src={image}></ImgprojetStyle>
-            <ParaProjetStyle> <SpanProjetStyle> projet {numeroprojet}</SpanProjetStyle>: {titreprojet} </ParaProjetStyle>
-            <a href={url} target="_blank" rel="noopener noreferrer"> <ButtonStyle> voir le projet </ButtonStyle></a>
-
-        </ProjetStyles>
-    )
+function Projet({ image, url, titreprojet, numeroprojet }) {
+  return (
+    <StyledCard
+      hoverable
+      cover={<img alt={titreprojet} src={image} />}
+      actions={[
+        <a href="/documents/mon-fichier.pdf" download>Télécharger</a>,
+        <a href={url} target="_blank" rel="noopener noreferrer">Voir le code</a>
+      ]}
+    >
+      <Meta title={numeroprojet} description={titreprojet} />
+    </StyledCard>
+  );
 }
 
-export default Projet
+export default Projet;
